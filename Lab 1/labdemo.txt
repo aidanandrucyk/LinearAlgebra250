@@ -1,0 +1,19 @@
+
+tester
+{Error: <a href="matlab: opentoline('C:\Users\austr\Documents\MATLAB\tester.m',4,5)">File: tester.m Line: 4 Column: 5
+</a>At least one END is missing: the statement may begin here.
+} 
+tester
+
+a =
+
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+
+dairy off
+{Unrecognized function or variable 'dairy'.
+} 
+diary off

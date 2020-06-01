@@ -1,0 +1,80 @@
+format compact
+LabDemo
+A =
+     0     1     2
+     3     4     5
+a =
+     9
+    -1
+  Name      Size            Bytes  Class     Attributes
+
+  A         2x3                48  double              
+  B         3x3                72  double              
+  D         3x3                72  double              
+  R         2x3                48  double              
+  a         2x1                16  double              
+  a12       1x1                 8  double              
+  ans       3x3                72  double              
+
+a12 =
+     1
+A =
+     0     1     2
+     3     4     5
+D =
+     5     0     0
+     0     8     0
+     0     0     3
+B =
+     7     0     0
+     0     8     0
+     0     0     0
+ans =
+   161     0     0
+     0   184     0
+     0     0     0
+ans =
+     0     0     0
+     0     0     0
+     0     0     0
+ans =
+  -119     0     0
+     0  -136     0
+     0     0     0
+ans =
+    0.7000         0         0
+         0    0.8000         0
+         0         0         0
+diary off
+format compact
+% Question 1(a)
+
+A
+A =
+     0     1     2
+     3     4     5
+a
+a =
+     9
+    -1
+whos
+  Name      Size            Bytes  Class     Attributes
+
+  A         2x3                48  double              
+  B         3x3                72  double              
+  D         3x3                72  double              
+  R         2x3                48  double              
+  a         2x1                16  double              
+  a12       1x1                 8  double              
+  ans       3x3                72  double              
+
+a12
+a12 =
+     1
+A
+A =
+     0     1     2
+     3     4     5
+Diary Off
+{Unrecognized function or variable 'Diary'.} 
+diary Off

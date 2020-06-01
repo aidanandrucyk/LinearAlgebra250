@@ -1,0 +1,340 @@
+% Aidan Andrucyk
+% 6899
+% Section C2
+% Math 250 MATLAB Lab Assignment #2
+rand('seed', 6899)
+format compact
+% Question 1(a)
+rvect(3)
+ans =
+     5
+     8
+     3
+u = rvect(3)
+u =
+     7
+     8
+     0
+v = rvect(3)
+v =
+     0
+     7
+     4
+u = rvect(3)
+u =
+     0
+     6
+     9
+v
+v =
+     0
+     7
+     4
+A = rmat(3, 5)
+A =
+     8     4     2     3     6
+     3     1     2     3     3
+     1     9     3     1     4
+% Question 1 (a)
+A = rmat(3, 5), rank(A(:,1:3))
+A =
+     2     2     5     5     5
+     6     6     6     3     8
+     6     6     7     4     9
+ans =
+     2
+A = rmat(3, 5), rank(A(:,1:3))
+A =
+     7     4     3     1     0
+     2     0     7     6     4
+     1     8     1     0     7
+ans =
+     3
+b = rvect(3), R = rref([A b])
+b =
+     7
+     9
+     8
+R =
+  Columns 1 through 4
+    1.0000         0         0   -0.1975
+         0    1.0000         0   -0.0895
+         0         0    1.0000    0.9136
+  Columns 5 through 6
+   -0.8519   -0.0370
+    0.8796    0.8426
+    0.8148    1.2963
+S = R(:,1:5)
+S =
+  Columns 1 through 4
+    1.0000         0         0   -0.1975
+         0    1.0000         0   -0.0895
+         0         0    1.0000    0.9136
+  Column 5
+   -0.8519
+    0.8796
+    0.8148
+% Question 1(a)(i) 
+% 1, 2, 3
+% Question 1(a)(ii)
+% Rank of R is 3, Rank of A is 0
+% Rank of R and A is 3
+% Question 1(a)(iii)
+% Nullity of A is 2, and the x4 and x5 are free variables
+% Question 1(a)(iv)
+% The equation Ax = b is constistent and therefore must have a solution as the number of basic variables equals the rank and the nullity equals the number of free variables
+% Question 1(b)
+c = R(:,6)
+c =
+   -0.0370
+    0.8426
+    1.2963
+x = [c; 0; 0]
+x =
+   -0.0370
+    0.8426
+    1.2963
+         0
+         0
+A*x - b
+ans =
+     0
+     0
+     0
+S*x - c
+ans =
+     0
+     0
+     0
+% Question 1(b)(ii)
+% Matrice S can be found by performing elementary row operations A until it is in row echelon form. It is also possible to get A by performing row operations on S. We can perform elementary row operations on an the augmented matrix of A and b to obtain a new augmented matrix of S and c. The reversibility of the elementary row operations assures us that the solutions of Ax = b are the same as those of Sx = c. Therefore performing an elementary row operation on the augmented matrix of a system of linear equations does not change the so/wion set. That is, each elemematy row operation produces the augmented matrix of an equivalent system of linear equations.
+% The linear combination of S and x will produce produce c, where c is is essentially the rref of b after the augmented matrix A and b have row operations performed on. This explains why when we rearrange terms, that both of the equations are equal to 0.
+% Question 1(c)
+v = [-S(:,5);0;1]
+v =
+    0.8519
+   -0.8796
+   -0.8148
+         0
+    1.0000
+u = [-S(:,4); 1; 0]
+u =
+    0.1975
+    0.0895
+   -0.9136
+    1.0000
+         0
+% Question 1(c)(i)
+% Since vector x can have non-zero entries and still create a sitaution where Ax = 0, A is linearly dependent. 
+% The reason v and u work is because of this linearly dependent nature. columns 1, 2, and 3 create an identity matrix and so v and u linearly combine with S to create a zero vector.
+% To illustrate this, the first row of the solution for Sv = 0 would be found by multiplying 1(.8519)+(0)(-.8796)+(0)(-.8148)+(-.1975)+(1)(-.8519) = 0.
+% This is to say that column 5 (-v) and column 4 (-u) are linear combination of the preceding vectors.
+S*u
+ans =
+     0
+     0
+     0
+A*u
+ans =
+   1.0e-15 *
+    0.1110
+         0
+         0
+S*v
+ans =
+     0
+     0
+     0
+A*v
+ans =
+   1.0e-15 *
+   -0.1110
+    0.4441
+         0
+s = rand(1)
+s =
+    0.5644
+t = rand(1)
+t =
+    0.3542
+y = s*u + t*v
+y =
+    0.4132
+   -0.2611
+   -0.8043
+    0.5644
+    0.3542
+% Question 1(c)(ii)
+A*y
+ans =
+   1.0e-14 *
+    0.0222
+    0.1332
+   -0.0222
+% Since y = su+tu, Ay=0 can be rewritten as A(tu+su)=0. Using the A(u + v) =Au + Av property, the equation can be rewritten as Atv +Asu =0. Due to the property  A(cu) = c(Au) = (cA)u for every scalar c, the equation can be rewritten as (Av)t + (Au)s = 0. Since we know that Av = 0 and Au = 0 from the previous question, we can substitute these values such that the equation is 0t + 0s = 0. The scalar 0 will make it such that 0 = 0. 
+% Question 1(d)
+z = x + y
+z =
+    0.3762
+    0.5815
+    0.4920
+    0.5644
+    0.3542
+% Since z = x +y, we can rewrite Az=b as A(x+y)=b. Using the property A(u + v) =Au + Av, we can say that Ax + Ay = b. Since we know that Ax = b and that Ay = 0 from previous parts, we can say that b + 0 = b such that b = b which is true.
+A*z
+ans =
+    7.0000
+    9.0000
+    8.0000
+A*z - b
+ans =
+   1.0e-15 *
+    0.8882
+         0
+   -0.8882
+% Question 2
+u1 = rvect(3), u2 = rvect(3), u3 = rvect(3), u4 = rvect(3)
+u1 =
+     1
+     3
+     8
+u2 =
+     3
+     2
+     6
+u3 =
+     7
+     5
+     7
+u4 =
+     5
+     9
+     2
+% Question 2(a)(i)
+A = [u1 u2 u3], rref(A)
+A =
+     1     3     7
+     3     2     5
+     8     6     7
+ans =
+     1     0     0
+     0     1     0
+     0     0     1
+% Ax = 0 has zero variables
+% S is linearly independent since the solution for Ax=0 is for x to be a 0 vector. Also, rank(A)=3 so nullity=3-3=0.
+% Question 2(b)
+T = [u1 u2 u3 u4], rref(T)
+T =
+     1     3     7     5
+     3     2     5     9
+     8     6     7     2
+ans =
+    1.0000         0         0    2.0182
+         0    1.0000         0   -5.7091
+         0         0    1.0000    2.8727
+% Question 2(b)(i)
+% Bx = 0 has 1 free variable since nullity is 1
+% Question 2(b)(ii)
+% Set T is linearly dependent since there exists nonzero solutions and nullity is 1 so there exists a free variable.
+% Question 2(c)
+% U is linearly dependent since v is a linear combination of the preceding vectors.
+U = [u1 u2 v], rref(U)
+U =
+    1.0000    3.0000    0.3317
+    3.0000    2.0000    0.9390
+    8.0000    6.0000    2.5094
+ans =
+    1.0000         0    0.3077
+         0    1.0000    0.0080
+         0         0         0
+% Question 3
+A = rmat(2,3), B = rmat(3, 4), C = rmat(4,3), v = rvect(4)
+A =
+     4     3     8
+     9     5     3
+B =
+     2     5     2     7
+     0     2     8     4
+     3     4     2     0
+C =
+     0     6     0
+     6     2     5
+     9     3     4
+     5     9     8
+v =
+     4
+     6
+     3
+     8
+% Question 3(a)
+u = B*v
+u =
+   100
+    68
+    42
+u = A*u
+u =
+         940
+        1366
+D = A*B
+D =
+    32    58    48    40
+    27    67    64    83
+D*v
+ans =
+         940
+        1366
+A*(B*C)
+ans =
+         980         812         802
+        1393        1235        1255
+(A*B)*C
+ans =
+         980         812         802
+        1393        1235        1255
+% Question 3(b)
+A = [0 1; 0 0], B = [0 0; 1 0], C = [0 1; 1 0]
+A =
+     0     1
+     0     0
+B =
+     0     0
+     1     0
+C =
+     0     1
+     1     0
+% Question 3(b)(i)
+A*B
+ans =
+     1     0
+     0     0
+B*A
+ans =
+     0     0
+     0     1
+% Yes, AB = BA
+(A+B)*(A+B)
+ans =
+     1     0
+     0     1
+A*A + 2*A*B + B*B
+ans =
+     2     0
+     0     0
+% No, (A+B)*(A+B) and A*A + 2*A*B + B*B are not the same
+% Question 3(b)(ii)
+A*A
+ans =
+     0     0
+     0     0
+% If A were a number, then A^2 would be the squared value of A but this is not true for matrices. Matrix multiplication does not raise square the entries.
+% Question 3(b)(iii)
+A*C
+ans =
+     1     0
+     0     0
+A*B
+ans =
+     1     0
+     0     0
+% If these were numbers, then I would conclude that B and C are equal to zero. This is not a valid conclusion for matrices since AC and AB are not zero matrices.
