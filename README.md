@@ -6,7 +6,7 @@ MATLAB Assignments corresponding to Introductory Linear Algebra 250 of the Rutge
 **Overall Course Average: 97.1% (A)**
 * Midterm 1 Exam Grade: 98% (second highest grade in section)
 * Midterm 2 Exam Grade: 100% (highest grade in section)
-* Final Exam Grade: 96% (top 5% percentile)
+* Final Exam Grade: 96% (top 5 percentile)
 
 **Matlab Average: 92.5%**
 * Lab 1: 20/25
